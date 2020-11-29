@@ -1,4 +1,4 @@
-Implementation of the algorithm for generating the C-score of a rhythm (i.e. temporal pattern) from "Perception of Temporal Patterns" (Povel & Essens, 1985). 
+Implementation of the algorithm for generating the C-score of a rhythm (i.e. temporal pattern) from ["Perception of Temporal Patterns"](https://online.ucpress.edu/mp/article-abstract/2/4/411/62235/Perception-of-Temporal-Patterns?redirectedFrom=fulltext) (Povel & Essens, 1985)
 
 ### Installation
 At the moment, install with `python setup.py install`. 
@@ -13,6 +13,7 @@ Povel & Essens provide a heuristic for marking accents in a temporal pattern acc
 1. Relatively isolated events (use `get_indices_of_isolated_elements(temporal_pattern)`)
 2. The second tone in a cluster of two (use `get_indices_of_isolated_short_clusters(temporal_pattern)`)
 3. The initial and final tones of a cluster consisting of >3 tones (use `get_indices_of_isolated_long_clusters(temporal_pattern)`)
+
 We can mark the accents in a temporal pattern with `mark_accents`. 
 
 We can generate all the clocks of a fragment as follows:
@@ -37,11 +38,10 @@ We can generate all the clocks of a fragment as follows:
 [ 4  9 14]
 ```
 
-We calculate the C-score of a fragment (given a clock) with:
+We calculate the C-score of a fragment (given a clock) as follows. Note that the default weight value `W` is set to 4, following the paper. 
 ```
 >>> fragment = np.array([0.75, 0.25, 0.25, 1.0, 0.5, 0.25])
 >>> clock_choice = np.array([2, 5, 8, 11])
->>> c_score(fragment, clock_choice)
+>>> c_score(fragment, clock_choice, W=4)
 8
 ```
-
