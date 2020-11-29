@@ -1,4 +1,4 @@
-Implementation of the algorithm for generating the C-score of a rhythm (i.e. temporal pattern) from ["Perception of Temporal Patterns"](https://online.ucpress.edu/mp/article-abstract/2/4/411/62235/Perception-of-Temporal-Patterns?redirectedFrom=fulltext) (Povel & Essens, 1985)
+Implementation of the algorithm for generating the C-score of a rhythm (i.e. temporal pattern) from ["Perception of Temporal Patterns"](https://online.ucpress.edu/mp/article-abstract/2/4/411/62235/Perception-of-Temporal-Patterns?redirectedFrom=fulltext) (Povel & Essens, 1985). 
 
 ### Installation
 At the moment, install with `python setup.py install`. 
