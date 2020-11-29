@@ -202,9 +202,9 @@ def mark_accents(time_scale_array):
 	>>> mark_accents(np.array([1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0]))
 	array([2, 1, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0, 1, 2, 0, 0])
 	"""
-	isolated_elements = _get_indices_of_isolated_elements(time_scale_array)
-	isolated_short_cluster = _get_indices_of_isolated_short_clusters(time_scale_array)
-	isolated_long_cluster = _get_indices_of_isolated_long_clusters(time_scale_array)
+	isolated_elements = get_indices_of_isolated_elements(time_scale_array)
+	isolated_short_cluster = get_indices_of_isolated_short_clusters(time_scale_array)
+	isolated_long_cluster = get_indices_of_isolated_long_clusters(time_scale_array)
 
 	flatten = lambda l: [item for sublist in l for item in sublist]
 	isolated_long_cluster = flatten(isolated_long_cluster)
@@ -383,8 +383,6 @@ def c_score(temporal_pattern, clock, W=4):
 def get_best_clock(temporal_pattern):
 	raise NotImplementedError
 
-####################################################################################################
-# Testing
-
-def test_get_indices_of_isolated_elements():
-	assert 1 + 1 == 2
+if __name__ == "__main__":
+	import doctest
+	doctest.testmod()
