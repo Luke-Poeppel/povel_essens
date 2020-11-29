@@ -363,14 +363,14 @@ def get_ev_dict(time_scale_array, clock):
 	return ev_dict
 
 # C-score calculation
-def c_score(temporal_pattern, clock, W=4):
+def cscore(temporal_pattern, clock, W=4):
 	"""
 	Calculates the C-score of a temporal pattern. We use the convention of the original 
 	paper by setting W = 4. 
 
 	>>> fragment = np.array([0.75, 0.25, 0.25, 1.0, 0.5, 0.25])
 	>>> clock_choice = np.array([2, 5, 8, 11])
-	>>> c_score(fragment, clock_choice)
+	>>> cscore(fragment, clock_choice)
 	8
 	"""
 	time_scale_array = transform_to_time_scale(temporal_pattern)
