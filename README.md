@@ -1,13 +1,20 @@
 Implementation of the algorithm for generating the C-score of a rhythm (i.e. temporal pattern) from ["Perception of Temporal Patterns"](https://online.ucpress.edu/mp/article-abstract/2/4/411/62235/Perception-of-Temporal-Patterns?redirectedFrom=fulltext) (Povel & Essens, 1985). 
 
 ### Installation
-At the moment, install with `python setup.py install`. 
-
-### Usage 
 ```
->>> udikshana = np.array([0.5, 1.5, 0.5, 0.5, 1.0])
->>> transform_to_time_scale(udikshana)
-array([1, 1, 0, 0, 1, 1, 1, 0])
+>>> cd
+>>> git clone https://github.com/Luke-Poeppel/povel_essens.git
+>>> cd povel_essens
+>>> pip3 install -e .
+```
+
+### Usage
+Given a clock, we calculate the C-score of a fragment as follows. Note that the default weight value `W` is set to 4, following the paper. 
+```
+>>> fragment = np.array([0.75, 0.25, 0.25, 1.0, 0.5, 0.25])
+>>> clock_choice = np.array([2, 5, 8, 11])
+>>> c_score(fragment, clock_choice, W=4)
+8
 ```
 Povel & Essens provide a heuristic for marking accents in a temporal pattern according to three principles:
 1. Relatively isolated events (use `get_indices_of_isolated_elements(temporal_pattern)`)
@@ -36,12 +43,4 @@ We can generate all the clocks of a fragment as follows:
 [ 2  7 12]
 [ 3  8 13]
 [ 4  9 14]
-```
-
-We calculate the C-score of a fragment (given a clock) as follows. Note that the default weight value `W` is set to 4, following the paper. 
-```
->>> fragment = np.array([0.75, 0.25, 0.25, 1.0, 0.5, 0.25])
->>> clock_choice = np.array([2, 5, 8, 11])
->>> c_score(fragment, clock_choice, W=4)
-8
 ```
