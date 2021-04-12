@@ -7,6 +7,8 @@
 #
 # Location: NYC, 2021
 ####################################################################################################
+import numpy as np
+
 def get_indices_of_isolated_elements(time_scale_array):
 	"""
 	Returns the indices of isolated elements in an array. 
@@ -18,8 +20,6 @@ def get_indices_of_isolated_elements(time_scale_array):
 	>>> paper_example = np.array([1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0])
 	>>> get_indices_of_isolated_elements(time_scale_array=paper_example)
 	array([3, 9])
-	>>> get_indices_of_isolated_elements(np.array([1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1]))
-	array([ 0,  2, 11])
 	"""
 	if len(time_scale_array) == 1:
 		return np.array([0])
