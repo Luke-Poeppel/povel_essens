@@ -7,6 +7,7 @@
 #
 # Location: NYC, 2021
 ####################################################################################################
+import copy
 import numpy as np
 
 def get_indices_of_isolated_elements(time_scale_array):
