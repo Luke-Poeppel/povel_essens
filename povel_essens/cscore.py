@@ -58,7 +58,7 @@ def transform_to_time_scale(temporal_pattern):
 				break
 			else:
 				i += 1
-	
+
 	if len(total_durations) == 0:
 		raise Exception("Something is wrong with the input quarter lengths!")
 
@@ -133,6 +133,8 @@ def generate_all_clocks(time_scale_array):
 	[ 3  8 13]
 	[ 4  9 14]
 	"""
+	assert all(x in {0, 1} for x in time_scale_array)
+
 	clocks = []
 	accented_array = mark_accents(time_scale_array)
 	duration = len(accented_array)

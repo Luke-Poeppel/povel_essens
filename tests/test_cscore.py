@@ -1,7 +1,10 @@
 import pytest
 import numpy as np
 
-from povel_essens.cscore import transform_to_time_scale
+from povel_essens.cscore import (
+	transform_to_time_scale,
+	generate_all_clocks
+)
 
 def test_time_scale():
 	transformed_1 = transform_to_time_scale(temporal_pattern=np.array([0.5, 0.5, 0.375, 0.375]))
@@ -13,3 +16,11 @@ def test_time_scale():
 	udikshana = np.array([0.5, 1.5, 0.5, 0.5, 1.0])
 	transformed_3 = transform_to_time_scale(udikshana)
 	assert list(transformed_3) == [1, 1, 0, 0, 1, 1, 1, 0]
+
+def test_generate_all_clocks():
+	udikshana = np.array([0.5, 1.5, 0.5, 0.5, 1.0])
+	udikshana_ts = transform_to_time_scale(udikshana)
+	print(generate_all_clocks(udikshana_ts))
+
+print(test_generate_all_clocks())
+
